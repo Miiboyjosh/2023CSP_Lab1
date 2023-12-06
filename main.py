@@ -6,11 +6,14 @@ import turtle as trtl
 box = trtl.Turtle()
 lines = trtl.Turtle()
 wn = trtl.Screen()
+startx = -490
+starty = -300
 
 # Setup Screen
 def setupScreen():
     global wn
     wn.setup(1000, 700)
+
 
 # Create the box on the screen
 def setupBox():
@@ -26,11 +29,19 @@ def setupBox():
     box.left(90)
     box.forward(630)
     box.hideturtle()
-
+setupBox()
 
 # Code for 80 point version goes here
 def v80():
+   lines.penup()
    lines.goto(-490, -300)
+   lines.pendown()
+
+   for x in range(100):
+       lines.speed(0)
+       lines.goto(-10, -300)
+       lines.goto(startx + 10, starty + 10)
+v80()
 
 
 
