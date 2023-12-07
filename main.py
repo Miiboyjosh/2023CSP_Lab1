@@ -8,6 +8,8 @@ lines = trtl.Turtle()
 wn = trtl.Screen()
 startx = -490
 starty = -300
+endx = 490
+endy = -300
 
 # Setup Screen
 def setupScreen():
@@ -29,19 +31,24 @@ def setupBox():
     box.left(90)
     box.forward(630)
     box.hideturtle()
-setupBox()
 
 # Code for 80 point version goes here
 def v80():
+   global startx, endy, starty, endx
    lines.penup()
-   lines.goto(-490, -300)
+   lines.goto(startx, starty)
    lines.pendown()
-
-   for x in range(100):
+   for line in range(50):
        lines.speed(0)
-       lines.goto(-10, -300)
-       lines.goto(startx + 10, starty + 10)
-v80()
+       lines.penup()
+       lines.goto(startx, starty)
+       lines.pendown()
+       lines.goto(endx, endy)
+       endy += 12.6
+       startx += 19.6
+
+
+
 
 
 
@@ -50,14 +57,42 @@ v80()
 def v90():
     # Calling the 80 point function - don't copy-paste from earlier method!!
     v80()
-
-
-
-
+    global startx, starty, endx, endy
+    startx = 490
+    starty = -300
+    endx = -490
+    endy = -300
+    lines.penup()
+    lines.goto(startx, starty)
+    lines.pendown()
+    for line in range(50):
+        lines.speed(0)
+        lines.penup()
+        lines.goto(startx, starty)
+        lines.pendown()
+        lines.goto(endx, endy)
+        endy += 12.6
+        startx -= 19.6
 # Code for the 100 point version here
 def v100():
     # Calling the 90 point function - don't copy-paste from earlier method!!
     v90()
+    global startx, starty, endx, endy
+    startx = 490
+    starty = 330
+    endx = -490
+    endy = 330
+    lines.penup()
+    lines.goto(startx, starty)
+    lines.pendown()
+    for line in range(50):
+        lines.speed(0)
+        #lines.penup()
+        lines.goto(startx, starty)
+        lines.pendown()
+        lines.goto(endx, endy)
+        endy -= 12.6
+        startx -= 19.6
 
 
 
@@ -70,6 +105,7 @@ def v110():
 
 setupScreen()
 setupBox()
+v110()
 
 
 
