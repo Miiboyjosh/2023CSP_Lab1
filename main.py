@@ -93,6 +93,18 @@ def v100():
         lines.goto(endx, endy)
         endy -= 12.6
         startx -= 19.6
+    startx = -490
+    starty = 330
+    endx = 490
+    endy = 330
+    for line in range(50):
+        lines.speed(0)
+        #lines.penup()
+        lines.goto(startx, starty)
+        lines.pendown()
+        lines.goto(endx, endy)
+        endy -= 12.6
+        startx += 19.6
 
 
 
